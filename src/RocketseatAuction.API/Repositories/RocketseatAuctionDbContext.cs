@@ -3,13 +3,11 @@ using RocketseatAuction.API.Entities;
 
 namespace RocketseatAuction.API.Repositories;
 
-public class RocketseatAuctionDbContext: DbContext
+public class RocketseatAuctionDbContext : DbContext
 {
-    public DbSet<Auction> Auctions { get; set; } = default!;
-    public DbSet<User> Users { get; set; } = default!;
-    public DbSet<Offer> Offers { get; set; } = default!;
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlite("Data Source=C:\\Users\\pfave\\Documents\\Estudos\\RocketSeat\\nlw-Expert\\leilaoDbNLW.db");
-    }
+    public RocketseatAuctionDbContext(DbContextOptions options) : base(options) { }
+    public DbSet<Auction> Auctions { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Offer> Offers { get; set; }
 }
+ 
